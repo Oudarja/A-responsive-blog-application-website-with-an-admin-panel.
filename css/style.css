@@ -1,0 +1,1224 @@
+/*
+ a set of CSS custom properties (also known as CSS variables) 
+within the :root pseudo-class. These custom properties are used
+to store values that you can reuse throughout your CSS stylesheet.
+
+*/
+
+:root {
+  --color-primary: #6f6af8;
+  /* HSL (Hue, Saturation, Lightness) format*/
+  /* fourth parameter represents the alpha value, which indicates
+     the transparency or opacity of the color. The alpha value is 
+     specified as a percentage, ranging from 0% (fully transparent)
+      to 100% (fully opaque) */
+  --color-primary-light: hsl(242, 91%, 69%, 18%);
+  --color-primary-variant: #5854c7;
+  --color-red: #da0f3f;
+  --color-red-light: hsl(346, 87%, 46%, 15%);
+  --color-green: #00c476;
+  --color-green-light: hsl(156, 100%, 38%, 15%);
+  --color-gray-900: #1e1e66;
+  --color-gray-700: #2d2b7c;
+  --color-gray-300: rgba(242, 242, 254, 0.3);
+  --color-gray-200: rgba(242, 242, 254, 0.7);
+  --color-white: #f2f2fe;
+  --color-bg: #0f0f3e;
+
+  --transition: all 300ms ease;
+
+  --container-width-lg: 74%;
+  --container-width-md: 88%;
+  --form-width: 40%;
+
+  --card-border-radius-1: 0.3rem;
+  --card-border-radius-2: 0.5rem;
+  --card-border-radius-3: 0.8rem;
+  --card-border-radius-4: 2rem;
+  --card-border-radius-5: 5rem;
+}
+/*
+
+--color-primary: Represents the primary color used in the design, specified as a hex value #6f6af8.
+--color-primary-light: Represents a lighter variant of the primary color, specified using HSL (Hue, Saturation, Lightness) format.
+--color-primary-variant: Represents a variant of the primary color, specified as a hex value #5854c7.
+--color-red: Represents a red color, specified as a hex value #da0f3f.
+--color-red-light: Represents a lighter variant of the red color, specified using HSL format.
+--color-green: Represents a green color, specified as a hex value #00c476.
+--color-green-light: Represents a lighter variant of the green color, specified using HSL format.
+--color-gray-900, --color-gray-700, --color-gray-300, --color-gray-200: Represents various shades of gray, specified as either hex values or rgba (Red, Green, Blue, Alpha) format.
+--color-white: Represents a white color, specified as a hex value #f2f2fe.
+--color-bg: Represents the background color, specified as a hex value #0f0f3e.
+--transition: Represents a common transition effect for CSS properties, specified as all 300ms ease.
+--container-width-lg, --container-width-md, --form-width: Represents widths for different container elements, specified as percentages or specific values.
+--card-border-radius-1 to --card-border-radius-5: Represents different levels of border radii for card elements, specified in rem (root em) units.
+*/
+
+/* =========Genearl============== */
+
+/* the asterisk * is a universal selector, which applies the specified styles 
+to all elements within the document. */
+* {
+  margin: 0;
+  padding: 0;
+  /* Outlines are commonly seen as a blue border around elements such as 
+links or buttons when they are clicked or focused on using the keyboard. 
+They provide visual feedback to users indicating which element is currently 
+active or in focus.*/
+  /* removes the default outline that browsers apply to focused elements when they 
+are activated or selected. */
+  outline: 0;
+  border: 0;
+  appearance: 0;
+  /* This removes the default list-style (such as bullets or numbers) from 
+list elements (<ul>, <ol>, and <menu>). */
+  list-style: none;
+  /* This removes any text decoration, such as underlines, from text elements. */
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  /* This is the rules to add montserat font style */
+  /* It prioritizes the "Montserrat" font, and if that font is unavailable, 
+    it falls back to a generic sans-serif font. */
+  font-family: "Montserrat", sans-serif;
+  /* line height is spacing between each line
+    This sets the line height of text within the <body> element
+     to 1.6 times the font size.This helps improve readability 
+     and spacing between lines of text.
+    */
+  line-height: 1.6;
+  color: var(--color-gray-900);
+  /* used to hide horizontal overflow content within an element. */
+  /* instructing the browser to hide any content that overflows the 
+    element's boundaries in the horizontal direction, effectively 
+    preventing horizontal scrolling. */
+  overflow-x: hidden;
+  background: var(--color-bg);
+  /* the font size is set to 0.9 times the size of the font 
+    defined at the root level (usually the default font size of the browser).
+    */
+  font-size: 0.9rem;
+}
+
+.container {
+  /* container width percentage within its parent element */
+  width: var(--container-width-lg);
+  /* This ensures that the container does not exceed this width, even if 
+    the viewport or parent element is wider. */
+  max-width: 1800px;
+  /* This sets the horizontal margin of the .container element to auto. 
+    Setting the horizontal margin to auto centers the container horizontally 
+    within its parent element or the viewport, ensuring equal spacing on both 
+    sides. */
+  margin-inline: auto;
+}
+
+/* 
+This sets a top margin of 3rem for the <section> elements. 
+This will create space above the sections, pushing content below them downwards.
+ */
+
+/* 
+his sets the width of the <section> elements to 100vw, where vw stands 
+for viewport width. This means each section will span the entire width
+of the viewport, ensuring they take up the full width of the browser window 
+regardless of its size. 
+ */
+section {
+  margin-top: 3rem;
+  width: 100vw;
+}
+/* add to posts on index if there's no featured post  */
+
+.section__extra-margin {
+  margin-top: 10rem;
+}
+
+/* 
+color: var(--color-white);: This sets the text color of all heading
+       elements to a custom color defined by the CSS variable --color-white.
+       This likely represents a shade of white.
+
+line-height: 1.3;: This sets the line height of all heading elements to 1.3 times
+                  the font size. This property controls the spacing between lines
+                  of text within the heading elements, improving readability 
+                  and aesthetics.
+*/
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--color-white);
+  line-height: 1.3;
+}
+/* 
+font-size: 3rem;: Sets the font size of <h1> elements to 3rem.
+margin: 1rem 0;: Sets the top and bottom margin of <h1> elements to 1rem and the left and right margin to 0. */
+h1 {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+h2 {
+  font-size: 1.7rem;
+  margin: 1rem 0;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin: 0.8rem 0 0.5rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+a {
+  color: var(--color-white);
+  /* Applies a CSS transition effect to anchor elements.  */
+  transition: var(--transition);
+}
+/* 
+display: block; This sets the display property of the <img> elements to block. 
+                By default, images are inline elements, meaning they flow within
+                the text content. Setting them to block makes them behave as
+                block-level elements, which allows them to take up the full
+                width available and enables control over their height, margin,
+                 and padding.
+
+width: 100%;: This sets the width of the <img> elements to 100% of their 
+              containing element's width. This ensures that the images span
+              the entire width of their container, making them responsive and
+              adjusting to different screen sizes.
+
+object-fit: cover;: This property specifies how the contents of the <img>
+                    elements should be resized to fit their container's 
+                    dimensions while preserving the aspect ratio. 
+
+*/
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ======================NAV===================== */
+
+nav {
+  background: var(--color-primary);
+  /* 
+    This sets the width of the <nav> element to 100vw, which 
+    means the width spans the entire viewport width. The vw 
+    unit stands for viewport width.
+    */
+  width: 100vw;
+
+  /* 
+This sets the height of the <nav> element to 4.5rem, creating 
+a fixed height for the navigation bar.
+*/
+  height: 4.5rem;
+  /*  
+    This positions the <nav> element relative to the viewport, so it
+    remains fixed in place even when the user scrolls the page. 
+     */
+  position: fixed;
+  /* 
+   This rule ensures that the top edge of the <nav> element 
+   is aligned with the top edge of the viewport. 
+    */
+  top: 0;
+  /* 
+z-index property only works on positioned elements, meaning elements 
+with a position value of relative, absolute, fixed, or sticky. 
+By default, all elements have a z-index value of auto, which means
+they stack in the order they appear in the HTML document.
+*/
+  /* 
+This property sets the stacking order of the <nav> element, ensuring
+that it appears above other elements with lower z-index values.
+*/
+  z-index: 10;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+nav button {
+  display: none;
+}
+
+.nav_container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  /* This rule applies a border radius of 50% to the .avatar element, 
+  effectively rounding its corners to create a circular shape.
+  */
+  border-radius: 50%;
+
+  /* 
+This rule ensures that any content or elements that exceed the
+boundaries of the .avatar element are hidden from view. In this
+case, it ensures that the border-radius effectively clips the
+corners of the element, giving it a circular appearance.
+  */
+  overflow: hidden;
+  /* 
+  This rule sets the border of the .avatar element to 0.3rem width, 
+  solid style, and the color defined by the CSS variable --color-bg
+  */
+  border: 0.3rem solid var(--color-bg);
+}
+
+.nav__logo {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.nav__items {
+  /* 
+    display: flex; alone will make the elements within .nav_items display 
+    in a row by default. This is because display: flex; sets the flex
+    container's main axis to be horizontal by default
+    
+    */
+  display: flex;
+  /* 
+    The align-items: center; rule ensures that the items are vertically 
+    centered within the container,
+    */
+  align-items: center;
+  gap: 4rem;
+}
+
+/* 
+position: relative; is used to position an element relative to its normal position in the document flow.
+When you apply position: relative; to an element, you can then use other positioning properties like
+top, right, bottom, and left to offset the element from its original position.
+
+*/
+.nav__profile {
+  position: relative;
+  cursor: pointer;
+}
+
+.nav__profile ul {
+  position: absolute;
+  /* 
+ This rule sets the distance of the top edge of the <ul> element from
+its positioned ancestor (.nav__profile) to 125% of the height of the .nav__profile
+element.
+
+*/
+  top: 130%;
+  /* 
+This rule positions the <ul> element flush against the right edge of its 
+containing block (.nav__profile). Setting it to 0 means it will be aligned 
+with the right edge of the containing block.
+*/
+  right: 0;
+  /* 
+This property specifies that the <ul> element should be displayed as a 
+flex container, allowing its child elements (list items) to be flex items.
+*/
+  display: flex;
+  /* 
+direction of the main axis of the flex container to be vertical
+*/
+  flex-direction: column;
+  box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+/* show nav ul when nav profile is hovered*/
+/* 
+> ul: This targets direct child ul elements of the .nav__profile element.
+ The > selector is used to select immediate child elements.
+
+*/
+.nav__profile:hover > ul {
+  visibility: visible;
+  opacity: 1;
+}
+
+.nav__profile ul li a {
+  padding: 1rem;
+  background: var(--color-gray-900);
+  display: block;
+  width: 100%;
+}
+
+/* 
+trying to target the last <li> element within a list (<ul>) 
+inside a navigation (<nav>) with a class of .nav__profile, and
+style the anchor (<a>) tag within it. You're setting the
+background color to a red variable and the text color to a background color variable.
+*/
+.nav__profile ul li:last-child a {
+  background: var(--color-red);
+  color: var(--color-bg);
+}
+
+/* Category button */
+
+.category__button {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  /*border-radius means the curveshape of four edge of the box*/
+  /*--card-border-radius-2 more radius than --card-border-radius-1*/
+  border-radius: var(--card-border-radius-2);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* On hover the color gets changed to white */
+.category__button:hover {
+  color: var(--color-white);
+}
+
+.post__thumbnail {
+  /*  rounded corners on the element */
+  border-radius: var(--card-border-radius-5) 0 var(--card-border-radius-5) 0;
+  /*sets the border of the element to a solid line
+that is 1rem thick, with the color defined by */
+  border: 1rem solid var(--color-gray-900);
+  /* 
+This property ensures that any content that overflows
+the boundaries of the element will be hidden.
+*/
+  overflow: hidden;
+  /* 
+This adds a bottom margin of 1.6rem to the element, 
+providing spacing between this element and the elements
+below it.
+*/
+  margin-bottom: 1.6rem;
+}
+
+.post:hover .post__thumbnail img {
+  filter: saturate(0);
+  transition: filter 500ms ease;
+}
+
+.post__author {
+  /* 
+Flexbox, short for Flexible Box Layout, is a
+CSS layout module that provides a more efficient
+way to design and align elements within a container.
+It aims to distribute space among items in a way that
+provides optimal alignment and proportional resizing.    
+*/
+  display: flex;
+  /*
+sets the gap between the child elements of 
+the .post__author element to 1rem 
+*/
+  gap: 1rem;
+  /* 
+ adds a top margin of 1.2rem to the .post__author
+element, creating space between this element and 
+the element above it.   
+  */
+  margin-top: 1.2rem;
+}
+
+.post__author-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--card-border-radius-3);
+  overflow: hidden;
+}
+
+.featured {
+  margin-top: 8rem;
+}
+
+.featured__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.featured .post__thumbnail {
+  height: fit-content;
+}
+
+.post__info .post__body {
+  color: var(--color-gray-200);
+}
+
+.post__author .post__author-info small {
+  color: var(--color-gray-200);
+}
+/* ======================post styles================ */
+.posts__container {
+  /* sets the display property of the element 
+  to grid, establishing a grid container. */
+  display: grid;
+  /* defines the number and size of the columns in the grid. */
+  /* 3 columns and each column 1fr width */
+  grid-template-columns: repeat(3, 1fr);
+  /*  sets the gap or spacing between grid items
+   (both rows and columns) within the grid container.*/
+  gap: 5rem;
+  margin-bottom: 5rem;
+}
+
+/* ==================category buttons=================== */
+/* The container or div that contains the buttons will be styled
+through the following rules */
+.category__buttons {
+  padding: 4rem 0;
+  border-top: 2px solid var(--color-gray-900);
+  border-bottom: 2px solid var(--color-gray-900);
+}
+
+/* Now the buttons inside the div will be styled */
+.category__buttons-container {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* ==================footer=================== */
+
+footer {
+  background: var(--color-gray-900);
+  /* Sets the padding of the footer.
+  The values are specified in the order top, right, bottom, left.
+   */
+  padding: 5rem 0 0 0;
+
+  /*The inset keyword specifies that the shadow should be
+   inset (i.e., inside the element rather than outside) */
+
+  /* 
+   This box shadow effect creates a subtle shadow at the top
+  of the footer, giving it a slightly elevated appearance. 
+   */
+  box-shadow: inset 0 1.5rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.footer__socials {
+  /* 
+  This property centers the container horizontally within its parent element.
+  The auto value for the margin-inline property ensures that the left and right
+  margins are automatically adjusted to center the container.
+  */
+  margin-inline: auto;
+  /* Sets the width of the container to fit its contents. */
+  width: fit-content;
+  margin-bottom: 5rem;
+  display: flex;
+  /* Aligns the child elements along the main axis (horizontal axis 
+  in this case) and distributes the space between them evenly */
+  justify-content: space-between;
+  /* Aligns the child elements along the cross axis (vertical axis in this case)
+   and centers them vertically within the container. */
+  align-items: center;
+  /* Sets the gap or spacing between the child elements within the container. */
+  gap: 1.2rem;
+}
+
+.footer__socials a {
+  background: var(--color-bg);
+  /* This makes circle 
+  Creates a circular shape for the anchor elements by setting
+  the border radius to 50%. 
+  */
+  border-radius: 50%;
+  width: 2.3rem;
+  height: 2.3rem;
+  /* use a flexbox layou */
+  display: flex;
+  /* ensures that the child elements are vertically 
+  centered within the circular icons or links. */
+  align-items: center;
+  /* Aligns the child elements along the main axis (horizontal axis in this case) and centers them horizontally within the anchor elements.  */
+  justify-content: center;
+}
+
+.footer__socials a:hover {
+  background: var(--color-white);
+  color: var(--color-bg);
+}
+.footer__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+footer h4 {
+  color: var(--color-white);
+  margin-bottom: 0.6rem;
+}
+
+footer ul li {
+  padding: 0.4rem 0;
+}
+
+footer ul a {
+  opacity: 0.75;
+}
+/* 
+ selector targets anchor elements (<a>) that are descendants of
+unordered lists (<ul>) within the footer section (<footer>) and 
+are in the hovered state.
+*/
+footer ul a:hover {
+  /*  Sets the spacing between letters (or characters) of the anchor
+   elements when hovered over.  */
+  letter-spacing: 0.2rem;
+  opacity: 1;
+}
+
+.footer__copyright {
+  /* 
+Aligns the text within the copyright notice section to
+the center of the container. This ensures that the copyright
+notice is visually centered horizontally.
+  */
+  text-align: center;
+  /* 
+Adds padding to the top and bottom of the copyright notice section.
+The value 1.5rem specifies the padding size for the top and bottom,
+while 0 specifies no padding for the left and right sides.
+*/
+  padding: 1.5rem 0;
+  /* 
+Adds a border to the top of the copyright notice section.
+The border has a width of 2px, a solid line style, and a
+color defined by the CSS custom property --color-bg
+*/
+  border-top: 2px solid var(--color-bg);
+}
+
+.footer__copyright small {
+  display: block; /* Change display to block */
+  color: var(--color-white);
+}
+
+/* End of footer style */
+
+/* Search bar */
+.search__bar {
+  margin-top: 7rem;
+}
+.search__bar-container {
+  position: relative;
+  width: 30rem;
+  background: var(--color-gray-900);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 0.6rem 1rem;
+  border-radius: var(--card-border-radius-2);
+  color: var(--color-gray-300);
+}
+
+.search__bar-container > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.search__bar input {
+  background: transparent;
+  margin-left: 0.7rem;
+  /* top and bottom */
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.search__bar input::placeholder {
+  color: var(--color-gray-300);
+}
+/* Button */
+
+.btn {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-primary);
+  border-radius: var(--card-border-radius-2);
+  cursor: pointer;
+  transition: var(--transition);
+  color: #f2f2fe;
+}
+
+.btn.sm {
+  /* 0.3 for top and bottom and 0.7 for
+  left and right */
+  padding: 0.3rem 0.7rem;
+
+  font-size: 0.8rem;
+}
+
+.btn.danger {
+  background: var(--color-red);
+}
+.btn:hover {
+  background: var(--color-white);
+  color: var(--color-bg);
+}
+
+/* Single post style */
+.singlepost {
+  /* 6rem space from the top 0 rem from the right and 0 remfrom bottom and 
+     2rem from the left
+  */
+  margin: 6rem 0rem 2rem 0rem;
+}
+
+.singlepost__container {
+  width: var(--form-width);
+  background: var(--color-gray-900);
+  padding: 1rem 2rem 3rem;
+}
+.singlepost__container p {
+  color: var(--color-white);
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+
+.singlepost__thumbnail {
+  margin: 1.5rem 0 1;
+}
+
+/* Category post */
+
+.category__title {
+  height: 15rem;
+  margin-top: 4.5rem;
+  background: var(--color-gray-900);
+  display: grid;
+  place-items: center;
+}
+
+/* about  */
+/* 
+.empty__page element to have a height of 70% of 
+the viewport height, centers any text content
+horizontally, and uses CSS Grid to center the
+content both horizontally and vertically
+*/
+.empty__page {
+  height: 70vh;
+  /* text-align: center; */
+  display: grid;
+  place-content: center;
+}
+
+/* Geberal form for signup page */
+
+.form__section {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.form__section-container {
+  color: lightcyan;
+  width: var(--form-width);
+}
+
+.alert__message {
+  /* background: #da0f3f; */
+  padding: 0.8rem 1.4rem;
+  margin-bottom: 1rem;
+  border-radius: var(--card-border-radius-2);
+}
+
+.alert__message.error {
+  background: var(--color-red-light);
+  color: var(--color-red);
+}
+
+.alert__message.success {
+  background: var(--color-green-light);
+  color: var(--color-green);
+}
+
+.alert__message.lg {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  /* Distance between element  */
+  gap: 1rem;
+}
+
+.form__control {
+  display: flex;
+  /* Everything will be arranged in column one by one*/
+  flex-direction: column;
+  /* Distance between element  */
+  gap: 0.6rem;
+}
+/* 
+This selector targets elements with both the classes 
+"form__control" and "inline". 
+*/
+.form__control.inline {
+  /* 
+pecifies the direction in which flex items are placed
+in the flex container.
+*/
+  flex-direction: row;
+  /* 
+Setting it to "center" aligns the flex items vertically
+within the flex container, ensuring they are centered 
+vertically.
+*/
+  align-items: center;
+}
+
+/* 0.8rem on the top and bottom, and 1.4rem on the
+ left and right. */
+/* 
+ 
+ input: This targets HTML input elements,
+  such as text fields, checkboxes, radio buttons,
+  and buttons.
+
+textarea: This targets HTML textarea elements, 
+which are used for multi-line text input.
+
+select: This targets HTML select elements, 
+which are used to create drop-down lists.
+ 
+ 
+ */
+input,
+textarea,
+select {
+  padding: 0.8rem 1.4rem;
+  background-color: var(--color-gray-900);
+  border-radius: var(--card-border-radius-2);
+  resize: none;
+  color: var(--color-white);
+}
+
+.form__section small {
+  margin-top: 1rem;
+  display: block;
+}
+
+.form__section small a {
+  color: var(--color-primary);
+}
+
+/*====================== Dash board style===================== */
+
+.dashboard {
+  margin-top: 6rem;
+}
+
+.sidebar__toggle {
+  display: none;
+}
+
+.dashboard__container {
+  display: grid;
+  grid-template-columns: 14rem auto;
+  gap: 1rem;
+  background: var(--color-gray-900);
+  padding: 2rem;
+  margin-bottom: 5rem;
+}
+
+.dashboard aside a {
+  background-color: var(--color-primary);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.6rem;
+}
+
+/* With out the last child in each list items 
+ending a solid line should be given
+ */
+.dashboard aside ul li:not(:last-child) {
+  border-bottom: 1px solid var(--color-gray-900);
+}
+
+.dashboard aside a:hover {
+  background: var(--color-gray-700);
+}
+
+/* Here the active option will be changed by the rules given 
+here so that it is understood that this menue has been selected
+*/
+.dashboard aside a.active {
+  background-color: var(--color-gray-900);
+}
+
+.dashboard main {
+  margin-left: 1.5rem;
+}
+
+.dashboard main h2 {
+  margin: 0 0 2rem 0;
+  line-height: 1;
+}
+
+.dashboard main table {
+  width: 100%;
+  text-align: left;
+}
+
+/* Give table head bg color and padding and text of th
+gets white */
+.dashboard main table th {
+  background: var(--color-gray-700);
+  padding: 0.8rem;
+  color: var(--color-white);
+}
+/* 
+bottom border with a thickness of 1 pixel and a solid
+style in a gray color defined by the
+ variable --color-gray-200.
+*/
+.dashboard main table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.dashboard main table tr:hover td {
+  background-color: var(--color-bg);
+  color: var(--color-white);
+  cursor: default;
+  transition: var(--transition);
+}
+
+td {
+  color: #f2f2fe;
+}
+
+th {
+  color: #f2f2fe;
+}
+/* ==================Media queries=================== */
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: var(--container-width-md);
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+  h5 {
+    font-size: 0.8rem;
+  }
+  /* =============NAV=============== */
+  /* 
+targeting <button> elements that are descendants
+of <nav> elements   
+  */
+  nav button {
+    /* 
+  element will behave like an inline element
+  (it will flow with the surrounding content horizontally)  
+  */
+    display: inline-block;
+    font-size: 1.5rem;
+    /* 
+sets the background color of the button to be transparent,
+meaning it will be see-through 
+*/
+    background: transparent;
+    color: var(--color-white);
+
+    /* 
+ sets the cursor style when hovering over the
+button to a pointer, indicating to the user 
+that the button is clickable.
+*/
+    cursor: pointer;
+  }
+  /* 
+# symbol in CSS is used to denote an ID selector.
+An ID selector is used to select an HTML element
+with a specific ID attribute
+*/
+  nav button#close__nav-btn {
+    display: none;
+  }
+
+  .nav__container {
+    position: relative;
+  }
+  .nav__items {
+    position: absolute;
+    flex-direction: column;
+    top: 100%;
+    right: 0%;
+    width: 12rem;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    /* For adding the functionalities of hamburger button with Js initially 
+       it should be display none 
+    */
+    display: none;
+  }
+
+  .nav__items li {
+    width: 100%;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: -2rem 3 rem 7rem rgba(0, 0, 0, 0.7);
+    background: var(--color-gray-900);
+    border-top: 1px solid var(--color-bg);
+    animation: animateDropdown 400ms 0s ease forwards;
+    /* initially opacity will be zero */
+    opacity: 0;
+    transform-origin: top;
+  }
+  /* Making animation on humburger */
+  .nav__items li:nth-child(2) {
+    animation-delay: 200ms;
+  }
+
+  .nav__items li:nth-child(3) {
+    animation-delay: 400ms;
+  }
+
+  .nav__items li:nth-child(4) {
+    animation-delay: 600ms;
+  }
+
+  .nav__items li:nth-child(5) {
+    animation-delay: 800ms;
+  }
+
+  /* nav dropdown animation */
+
+  @keyframes animateDropdown {
+    /* 0% means initially */
+    0% {
+      /* rotate across x axis */
+      transform: rotateX(90deg);
+    }
+    /* 100% means after button press */
+    100% {
+      /* rotate across x axis */
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+  }
+  .nav__items li a {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-gray-900);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav__profile {
+    background: var(--color-gray-900);
+  }
+
+  .nav__profile ul {
+    top: 100%;
+    width: 100%;
+  }
+
+  .nav__profile .avatar {
+    /* To align with same line with the nave */
+    margin-left: 2rem;
+    border: 0;
+  }
+  .featured__container {
+    gap: 3rem;
+  }
+
+  .posts__container {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .footer__container {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  /* ==============Blog=========== */
+
+  .search__bar-container {
+    width: 60%;
+  }
+
+  /* General form signup */
+  .form__section-container {
+    padding: 3rem;
+  }
+
+  /* dashboard */
+
+  .dashboard__container {
+    grid-template-columns: 4.3rem auto;
+    padding: 0;
+    background: transparent;
+  }
+
+  .dashboard aside h5 {
+    display: none;
+  }
+
+  .dashboard main table thead {
+    display: none;
+  }
+
+  .dashboard main table tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dashboard main table tr:nth-child(even) {
+    background: var(--color-gray-900);
+  }
+
+  .dashboard main table tr:hover td {
+    background: transparent;
+  }
+
+  .sidebar__toggle {
+    display: none;
+  }
+}
+
+/* Media queries small devices */
+
+@media screen and (max-width: 600px) {
+  section {
+    margin-top: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .featured {
+    margin-top: 6rem;
+  }
+  .featured__container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .posts__container {
+    grid-template-columns: 1fr;
+  }
+  .category__buttons-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer__container {
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 2rem;
+  }
+  /* For mobile device */
+  .search__bar-container {
+    width: var(--container-width-md);
+  }
+
+  .singlepost__container {
+    background-color: transparent;
+    padding: 0;
+  }
+  .form__section-container {
+    padding: 0;
+  }
+
+  /* Manage categotes .html */
+  /* left or right icon button style  */
+
+  .dashboard {
+    margin-top: 5rem;
+  }
+
+  .dashboard__container {
+    /* 
+This property sets the number and size of the columns 
+in the grid container. In this case, it specifies that
+there is one column with a width of 1 fraction unit (fr).    
+    */
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  /* sets the margin on the top side of the <main> element to 1 rem unit. */
+  .dashboard main {
+    margin: 0;
+  }
+
+  .dashboard main h2 {
+    margin-top: 1rem;
+  }
+
+  /* targets <aside> elements within elements with the class "dashboard"  */
+  /*  */
+  .dashboard aside {
+    /*  sets the position of the <aside> elements to fixed,  */
+    position: fixed;
+    box-shadow: 2rem 0 4rem rgba(0, 0, 0, 0.4);
+    /* Initially out of screen then use js to handle it with */
+    left: -100%;
+    height: 100vh;
+    transition: var(--transition);
+    background: var(--color-primary);
+  }
+  .dashboard .sidebar__toggle {
+    display: inline-block;
+    background: var(--color-primary-variant);
+    color: var(--color-white);
+    position: fixed;
+    right: 0;
+    bottom: 4rem;
+    /* sets the stacking order of the elements.
+    Elements with a higher z-index are stacked 
+    above elements with a lower z-index. */
+    z-index: 1;
+    width: 2.5rem;
+    height: 2.5rem;
+    /* top left top right bottme right bottme left */
+    border-radius: 50% 0% 0% 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: -1rem 0 2rem rgba(0, 0, 0, 0.4);
+  }
+
+  /* the elements will be displayed as blocks, but they will flow with the 
+  surrounding content as if they were inline elements. */
+  .dashboard aside a h5 {
+    display: inline-block;
+  }
+  #hide__sidebar-btn {
+    display: none;
+  }
+}
